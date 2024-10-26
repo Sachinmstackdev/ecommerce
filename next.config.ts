@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  reactStrictMode: true,
+  transpilePackages: ['gsap'],
+  images: {
+    domains: ['placeholder.com'], // Add any domains you're loading images from
+  },
+}
 
-export default nextConfig;
+export default nextConfig
