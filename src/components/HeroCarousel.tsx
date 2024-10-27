@@ -1,14 +1,10 @@
 'use client'
 
-import { useRef } from 'react'
-import Image from 'next/image'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Image from 'next/image';
 
 const InfiniteCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
 
   const cards = [
     {
@@ -48,12 +44,12 @@ const InfiniteCarousel = () => {
     }
   ];
 
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [cards.length]); // Add cards.length here
 
   const getVisibleCards = () => {
     const visibleCards = [];
@@ -77,9 +73,10 @@ const InfiniteCarousel = () => {
               >
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden" style={{ width: '500px', height: '500px' }}>
                   <div className="relative aspect-[1/1]"> {/* Changed aspect ratio to 1:1 for square */}
-                    <img
+                    <Image
                       src={card.image}
                       alt={card.title}
+                      layout="fill"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
