@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import { Menu, X, Search, User, ShoppingCart, Heart, MapPin, Download, Phone, Truck, ChevronDown } from 'lucide-react'
 import gsap from 'gsap'
 
@@ -117,7 +116,6 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [activeMobileCategory, setActiveMobileCategory] = useState<string | null>(null)
   const underlineRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
-  const router = useRouter()
 
   const handleMouseEnter = (title: string) => {
     setActiveDropdown(title)

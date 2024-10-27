@@ -1,13 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import { useGSAP } from '../hooks/useGSAP' // Adjust the path as necessary
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  useGSAP() // Removed the argument
+  useGSAP()
 
   return (
     <header className="bg-white shadow-md">
