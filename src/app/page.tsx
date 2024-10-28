@@ -1,13 +1,17 @@
-import HeroCarousel from '../components/HeroCarousel' // Ensure this file exists
-//import FeaturedProducts from '../components/FeaturedProducts'
-//import CategoryGrid from './components/CategoryGrid'
+import HeroSection from '../components/HeroSection'; 
+import CategorySelector from '../components/Categorybutton';
+import CategoryGrid from '../components/CategoryGrid';
+import SecondCategoryButton from '../components/Second-CategoryButton';
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4">
-      <HeroCarousel />
-      {/* <FeaturedProducts />
-      <CategoryGrid /> */}
+      
+      <HeroSection />
+      <CategorySelector />
+      <CategoryGrid />
+      <SecondCategoryButton />
     </div>
   )
 }
+

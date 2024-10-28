@@ -51,28 +51,30 @@ const InfiniteCarousel = () => {
     return () => clearInterval(timer);
   }, [cards.length]); // Add cards.length here
 
+  // Modified getVisibleCards function to handle wrapping around
   const getVisibleCards = () => {
     const visibleCards = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % cards.length;
-      visibleCards.push(cards[index]);
-    }
-    return visibleCards;
+    return cards.slice(currentIndex, currentIndex + 3);
   };
 
   return (
-    <div className="w-full bg-white py-8"> {/* Changed bg-gray-100 to bg-white to match your design */}
-      <div className="max-w-7xl mx-auto px-4">
+    <div className="w-full bg-white py-8">
+      <div className="max-w-[95%] mx-auto">
         <div className="relative overflow-hidden">
-          <div className="flex transition-transform duration-500 ease-in-out">
+          <div 
+            className="flex transition-transform duration-500 ease-in-out gap-5"
+            style={{
+              transform: `translateX(-${(currentIndex % cards.length) * (33.33)}%)`,
+            }}
+          >
             {getVisibleCards().map((card, index) => (
               <a
                 href={card.link}
                 key={`${card.id}-${index}`}
-                className="w-1/3 px-4 transform transition-all duration-500 cursor-pointer hover:opacity-90"
+                className="flex-shrink-0 w-[calc(33.333%-14px)] transition-all duration-500 cursor-pointer hover:opacity-90"
               >
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden" style={{ width: '500px', height: '500px' }}>
-                  <div className="relative aspect-[1/1]"> {/* Changed aspect ratio to 1:1 for square */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden" style={{ aspectRatio: '1/1' }}>
+                  <div className="relative aspect-[1/1]">
                     <Image
                       src={card.image}
                       alt={card.title}

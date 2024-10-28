@@ -20,27 +20,73 @@ const mainNavItems = [
     categories: [
       {
         name: 'Topwear',
-        items: ['T-Shirts', 'Printed T-Shirts', 'Oversized T-shirts', 'Classic Fit T-shirts', 'Sweatshirts', 'Plain T-Shirts', 'Half Sleeve T-Shirts', 'Polo T-Shirts', 'Shirts', 'Co-ord Sets', 'Full Sleeve T-Shirts']
+        items: [
+          { name: 'T-Shirts', href: '/men/topwear/t-shirts' },
+          { name: 'Printed T-Shirts', href: '/men/topwear/printed-t-shirts' },
+          { name: 'Oversized T-shirts', href: '/men/topwear/oversized-t-shirts' },
+          { name: 'Classic Fit T-shirts', href: '/men/topwear/classic-fit-t-shirts' },
+          { name: 'Sweatshirts', href: '/men/topwear/sweatshirts' },
+          { name: 'Plain T-Shirts', href: '/men/topwear/plain-t-shirts' },
+          { name: 'Half Sleeve T-Shirts', href: '/men/topwear/half-sleeve-t-shirts' },
+          { name: 'Polo T-Shirts', href: '/men/topwear/polo-t-shirts' },
+          { name: 'Shirts', href: '/men/topwear/shirts' },
+          { name: 'Co-ord Sets', href: '/men/topwear/co-ord-sets' },
+          { name: 'Full Sleeve T-Shirts', href: '/men/topwear/full-sleeve-t-shirts' }
+        ]
       },
       {
         name: 'Bottomwear',
-        items: ['Joggers', 'Jeans', 'Baggy Jeans', 'Pajamas', 'Cargos', 'Cargo Pants', 'Trousers & Pants', 'Parachute Pants', 'Co-ord Sets', 'Shorts', 'Boxers']
+        items: [
+          { name: 'Joggers', href: '/men/bottomwear/joggers' },
+          { name: 'Jeans', href: '/men/bottomwear/jeans' },
+          { name: 'Baggy Jeans', href: '/men/bottomwear/baggy-jeans' },
+          { name: 'Pajamas', href: '/men/bottomwear/pajamas' },
+          { name: 'Cargos', href: '/men/bottomwear/cargos' },
+          { name: 'Cargo Pants', href: '/men/bottomwear/cargo-pants' },
+          { name: 'Trousers & Pants', href: '/men/bottomwear/trousers-pants' },
+          { name: 'Parachute Pants', href: '/men/bottomwear/parachute-pants' },
+          { name: 'Co-ord Sets', href: '/men/bottomwear/co-ord-sets' },
+          { name: 'Shorts', href: '/men/bottomwear/shorts' },
+          { name: 'Boxers', href: '/men/bottomwear/boxers' }
+        ]
       },
       {
         name: 'Winterwear',
-        items: ['Sweatshirts', 'Hoodies', 'Sweatshirts & Hoodies', 'Jackets', 'Sweaters', 'Joggers', 'Plus Size']
+        items: [
+          { name: 'Sweatshirts', href: '/men/winterwear/sweatshirts' },
+          { name: 'Hoodies', href: '/men/winterwear/hoodies' },
+          { name: 'Sweatshirts & Hoodies', href: '/men/winterwear/sweatshirts-hoodies' },
+          { name: 'Jackets', href: '/men/winterwear/jackets' },
+          { name: 'Sweaters', href: '/men/winterwear/sweaters' },
+          { name: 'Joggers', href: '/men/winterwear/joggers' },
+          { name: 'Plus Size', href: '/men/winterwear/plus-size' }
+        ]
       },
       {
         name: 'Footwear',
-        items: ['Bewakoof Sneakers', 'Sliders', 'Casual Shoes']
+        items: [
+          { name: 'Bewakoof Sneakers', href: '/men/footwear/bewakoof-sneakers' },
+          { name: 'Sliders', href: '/men/footwear/sliders' },
+          { name: 'Casual Shoes', href: '/men/footwear/casual-shoes' }
+        ]
       },
       {
         name: 'Accessories',
-        items: ['Mobile covers', 'Backpacks', 'Sunglasses', 'Sling bags', 'Caps', 'Mobile Card-holder']
+        items: [
+          { name: 'Mobile covers', href: '/men/accessories/mobile-covers' },
+          { name: 'Backpacks', href: '/men/accessories/backpacks' },
+          { name: 'Sunglasses', href: '/men/accessories/sunglasses' },
+          { name: 'Sling bags', href: '/men/accessories/sling-bags' },
+          { name: 'Caps', href: '/men/accessories/caps' },
+          { name: 'Mobile Card-holder', href: '/men/accessories/mobile-card-holder' }
+        ]
       },
       {
         name: 'Top Sellers',
-        items: ['Top 150 T-Shirts', 'Top 20 Cargos']
+        items: [
+          { name: 'Top 150 T-Shirts', href: '/men/top-sellers/top-150-t-shirts' },
+          { name: 'Top 20 Cargos', href: '/men/top-sellers/top-20-cargos' }
+        ]
       }
     ]
   },
@@ -50,27 +96,73 @@ const mainNavItems = [
     categories: [
       {
         name: 'Topwear',
-        items: ['T-Shirts', 'Printed T-Shirts', 'Boyfriend T-Shirts', 'Oversized T-Shirts', 'Classic Fit T-Shirts', 'Sweatshirts', 'Plain T-Shirts', 'Full Sleeve T-Shirts', 'Half Sleeves T-Shirts', 'Fashion Tops', 'Co-ord Sets']
+        items: [
+          { name: 'T-Shirts', href: '/women/topwear/t-shirts' },
+          { name: 'Printed T-Shirts', href: '/women/topwear/printed-t-shirts' },
+          { name: 'Boyfriend T-Shirts', href: '/women/topwear/boyfriend-t-shirts' },
+          { name: 'Oversized T-Shirts', href: '/women/topwear/oversized-t-shirts' },
+          { name: 'Classic Fit T-Shirts', href: '/women/topwear/classic-fit-t-shirts' },
+          { name: 'Sweatshirts', href: '/women/topwear/sweatshirts' },
+          { name: 'Plain T-Shirts', href: '/women/topwear/plain-t-shirts' },
+          { name: 'Full Sleeve T-Shirts', href: '/women/topwear/full-sleeve-t-shirts' },
+          { name: 'Half Sleeves T-Shirts', href: '/women/topwear/half-sleeves-t-shirts' },
+          { name: 'Fashion Tops', href: '/women/topwear/fashion-tops' },
+          { name: 'Co-ord Sets', href: '/women/topwear/co-ord-sets' }
+        ]
       },
       {
         name: 'Bottomwear',
-        items: ['Joggers', 'Jeans', 'Baggy Jeans', 'Parachute pants', 'Cargos', 'Cargo Pants', 'Co-ord Sets', 'Pajamas', 'Trousers & Pants', 'Shorts', 'Plus Size Bottomwear']
+        items: [
+          { name: 'Joggers', href: '/women/bottomwear/joggers' },
+          { name: 'Jeans', href: '/women/bottomwear/jeans' },
+          { name: 'Baggy Jeans', href: '/women/bottomwear/baggy-jeans' },
+          { name: 'Parachute pants', href: '/women/bottomwear/parachute-pants' },
+          { name: 'Cargos', href: '/women/bottomwear/cargos' },
+          { name: 'Cargo Pants', href: '/women/bottomwear/cargo-pants' },
+          { name: 'Co-ord Sets', href: '/women/bottomwear/co-ord-sets' },
+          { name: 'Pajamas', href: '/women/bottomwear/pajamas' },
+          { name: 'Trousers & Pants', href: '/women/bottomwear/trousers-pants' },
+          { name: 'Shorts', href: '/women/bottomwear/shorts' },
+          { name: 'Plus Size Bottomwear', href: '/women/bottomwear/plus-size-bottomwear' }
+        ]
       },
       {
         name: 'Winterwear',
-        items: ['Sweatshirts', 'Hoodies', 'Sweatshirts & Hoodies', 'Sweaters', 'Jackets', 'Joggers', 'Plus Size']
+        items: [
+          { name: 'Sweatshirts', href: '/women/winterwear/sweatshirts' },
+          { name: 'Hoodies', href: '/women/winterwear/hoodies' },
+          { name: 'Sweatshirts & Hoodies', href: '/women/winterwear/sweatshirts-hoodies' },
+          { name: 'Sweaters', href: '/women/winterwear/sweaters' },
+          { name: 'Jackets', href: '/women/winterwear/jackets' },
+          { name: 'Joggers', href: '/women/winterwear/joggers' },
+          { name: 'Plus Size', href: '/women/winterwear/plus-size' }
+        ]
       },
       {
         name: 'Footwear',
-        items: ['Casual Shoes', 'Sliders', 'Sneakers']
+        items: [
+          { name: 'Casual Shoes', href: '/women/footwear/casual-shoes' },
+          { name: 'Sliders', href: '/women/footwear/sliders' },
+          { name: 'Sneakers', href: '/women/footwear/sneakers' }
+        ]
       },
       {
         name: 'Accessories',
-        items: ['Mobile Covers', 'Bags & Backpacks', 'Sling bags', 'Sunglasses', 'Caps', 'Mobile Card-holder']
+        items: [
+          { name: 'Mobile Covers', href: '/women/accessories/mobile-covers' },
+          { name: 'Bags & Backpacks', href: '/women/accessories/bags-backpacks' },
+          { name: 'Sling bags', href: '/women/accessories/sling-bags' },
+          { name: 'Sunglasses', href: '/women/accessories/sunglasses' },
+          { name: 'Caps', href: '/women/accessories/caps' },
+          { name: 'Mobile Card-holder', href: '/women/accessories/mobile-card-holder' }
+        ]
       },
       {
         name: 'Top Sellers',
-        items: ['Top 100 T-Shirts', 'Top 20 Bottoms']
+        items: [
+          { name: 'Top 100 T-Shirts', href: '/women/top-sellers/top-100-t-shirts' },
+          { name: 'Top 20 Bottoms', href: '/women/top-sellers/top-20-bottoms' }
+        ]
       }
     ]
   },
@@ -80,11 +172,25 @@ const mainNavItems = [
     categories: [
       {
         name: 'Popular Brands',
-        items: ['iPhone', 'Samsung', 'OnePlus', 'Realme', 'Xiaomi', 'Vivo']
+        items: [
+          { name: 'iPhone', href: '/mobile-covers/popular-brands/iphone' },
+          { name: 'Samsung', href: '/mobile-covers/popular-brands/samsung' },
+          { name: 'OnePlus', href: '/mobile-covers/popular-brands/oneplus' },
+          { name: 'Realme', href: '/mobile-covers/popular-brands/realme' },
+          { name: 'Xiaomi', href: '/mobile-covers/popular-brands/xiaomi' },
+          { name: 'Vivo', href: '/mobile-covers/popular-brands/vivo' }
+        ]
       },
       {
         name: 'Other Brands',
-        items: ['Google', 'Oppo', 'Nokia', 'Motorola', 'Poco', 'Infinix']
+        items: [
+          { name: 'Google', href: '/mobile-covers/other-brands/google' },
+          { name: 'Oppo', href: '/mobile-covers/other-brands/oppo' },
+          { name: 'Nokia', href: '/mobile-covers/other-brands/nokia' },
+          { name: 'Motorola', href: '/mobile-covers/other-brands/motorola' },
+          { name: 'Poco', href: '/mobile-covers/other-brands/poco' },
+          { name: 'Infinix', href: '/mobile-covers/other-brands/infinix' }
+        ]
       }
     ]
   }
@@ -116,8 +222,12 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [activeMobileCategory, setActiveMobileCategory] = useState<string | null>(null)
   const underlineRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleMouseEnter = (title: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
     setActiveDropdown(title)
     const underlineRef = underlineRefs.current[title]
     if (underlineRef) {
@@ -126,12 +236,21 @@ export default function Navbar() {
   }
 
   const handleMouseLeave = () => {
-    setActiveDropdown(null)
-    Object.values(underlineRefs.current).forEach(ref => {
-      if (ref) {
-        gsap.to(ref, { scaleX: 0, duration: 0.3, ease: 'power2.in' })
-      }
-    })
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null)
+      Object.values(underlineRefs.current).forEach(ref => {
+        if (ref) {
+          
+          gsap.to(ref, { scaleX: 0, duration: 0.1, ease: 'power2.in' })
+        }
+      })
+    }, 200)
+  }
+
+  const cancelCloseTimeout = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
   }
 
   const toggleMobileCategory = (title: string) => {
@@ -147,7 +266,7 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
               {topBarItems.map((item) => (
                 <Link key={item.name} href={item.href} className="text-xs text-gray-600 hover:text-gray-900 flex items-center">
-                  {item.icon && <item.icon className="h-4 w-4 mr-1" />}
+                  {item.icon && <item.icon className="h-4 w-4  mr-1" />}
                   {item.name}
                 </Link>
               ))}
@@ -185,7 +304,7 @@ export default function Navbar() {
                     {item.title}
                   </Link>
                   <div
-                    ref={(el) => { underlineRefs.current[item.title] = el; }} // Updated to not return el
+                    ref={(el) => { underlineRefs.current[item.title] = el; }}
                     className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 transform origin-left scale-x-0"
                   ></div>
                 </div>
@@ -246,7 +365,10 @@ export default function Navbar() {
       {activeDropdown && (
         <div
           className="absolute left-0 w-full bg-white shadow-lg z-10 py-4 hidden md:block"
-          onMouseEnter={() => setActiveDropdown(activeDropdown)}
+          onMouseEnter={() => {
+            cancelCloseTimeout()
+            setActiveDropdown(activeDropdown)
+          }}
           onMouseLeave={handleMouseLeave}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -256,9 +378,11 @@ export default function Navbar() {
                   <h3 className="font-semibold mb-2">{category.name}</h3>
                   <ul className="space-y-1">
                     {category.items.map((item) => (
-                      <li key={item}>
-                        <Link href={`/${activeDropdown.toLowerCase()}/${category.name.toLowerCase()}/${item.toLowerCase().replace(/ /g, '-')}`} className="text-sm hover:text-primary">
-                          {item}
+                      <li key={item.name}>
+                        <Link href={item.href} className="text-sm hover:text-primary">
+                          <button className="w-full text-left py-1 px-2 rounded hover:bg-gray-100 transition duration-150 ease-in-out">
+                            {item.name}
+                          </button>
                         </Link>
                       </li>
                     ))}
@@ -284,7 +408,7 @@ export default function Navbar() {
       )}
 
       {/* Category Bar */}
-      <div className="bg-gray-100 hidden  md:block">
+      <div className="bg-gray-100 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 overflow-x-auto">
             {categoryBarItems.map((item) => (
@@ -316,11 +440,13 @@ export default function Navbar() {
                         <h4 className="font-medium text-sm text-gray-900 mt-2">{category.name}</h4>
                         {category.items.map((subItem) => (
                           <Link
-                            key={subItem}
-                            href={`/${item.title.toLowerCase()}/${category.name.toLowerCase()}/${subItem.toLowerCase().replace(/ /g, '-')}`}
+                            key={subItem.name}
+                            href={subItem.href}
                             className="block px-4 py-2 text-sm text-gray-500 hover:bg-gray-100"
                           >
-                            {subItem}
+                            <button className="w-full text-left">
+                              {subItem.name}
+                            </button>
                           </Link>
                         ))}
                       </div>
