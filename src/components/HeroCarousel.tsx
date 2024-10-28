@@ -57,6 +57,9 @@ const InfiniteCarousel = () => {
     return cards.slice(currentIndex, currentIndex + 3);
   };
 
+  // Remove or use the `visibleCards` variable
+  // const visibleCards = getVisibleCards();
+
   return (
     <div className="w-full bg-white py-8">
       <div className="max-w-[95%] mx-auto">
