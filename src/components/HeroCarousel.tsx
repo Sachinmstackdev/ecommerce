@@ -50,7 +50,7 @@ export default function Carousel() {
   useEffect(() => {
     const interval = setInterval(animateCarousel, 3000) // Change cards every 3 seconds
     return () => clearInterval(interval)
-  }, [])
+  }, [animateCarousel])
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4">
