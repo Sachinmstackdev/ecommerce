@@ -1,143 +1,75 @@
-"use client";
+'use client'
 
-import React, { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import Image from "next/image";
-import Link from "next/link";
+import React, { useEffect, useRef, useState } from 'react'
+import { gsap } from 'gsap'
 
-interface CardData {
-  id: number;
-  image: string;
-  title: string;
-  subtitle: string;
-  link: string;
+type Card = {
+  id: number
+  title: string
 }
 
-const cards: CardData[] = [
-  {
-    id: 1,
-    image: "/images/winterwear-collection.jpg",
-    title: "WINTERWEAR COLLECTION",
-    subtitle: "BEST SERVED HOTTT",
-    link: "/winterwear"
-  },
-  {
-    id: 2,
-    image: "/images/joker-collection.jpg",
-    title: "BUY 3 AT ₹999",
-    subtitle: "The Joker Collection",
-    link: "/offers/buy-3"
-  },
-  {
-    id: 3,
-    image: "/images/cartoon-collection.jpg",
-    title: "BUY 2 AT ₹999",
-    subtitle: "Cartoon Collection",
-    link: "/offers/buy-2"
-  },
-  {
-    id: 4,
-    image: "/images/summer-specials.jpg",
-    title: "SUMMER SPECIALS",
-    subtitle: "Hot Deals",
-    link: "/summer-collection"
-  },
-  {
-    id: 5,
-    image: "/images/new-arrivals.jpg",
-    title: "NEW ARRIVALS",
-    subtitle: "Fresh Collection",
-    link: "/new-arrivals"
+const cardData: Card[] = [
+  { id: 1, title: 'Card 1' },
+  { id: 2, title: 'Card 2' },
+  { id: 3, title: 'Card 3' },
+  { id: 4, title: 'Card 4' },
+  { id: 5, title: 'Card 5' },
+]
+
+export default function Carousel() {
+  const [visibleCards, setVisibleCards] = useState<Card[]>(cardData.slice(0, 3))
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const [isAnimating, setIsAnimating] = useState(false)
+
+  const animateCarousel = () => {
+    if (isAnimating || !carouselRef.current) return
+
+    setIsAnimating(true)
+
+    const cards = carouselRef.current.children
+    const cardWidth = cards[0].getBoundingClientRect().width
+
+    gsap.to(cards[0], {
+      x: -cardWidth,
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        setVisibleCards((prev) => {
+          const nextCardIndex = (cardData.findIndex((card) => card.id === prev[2].id) + 1) % cardData.length
+          const newCards = [...prev.slice(1), cardData[nextCardIndex]]
+          return newCards.length === 3 ? newCards : cardData.slice(0, 3)
+        })
+        setIsAnimating(false)
+      },
+    })
+
+    gsap.to(cards[1], { x: -cardWidth, duration: 0.5 })
+    gsap.to(cards[2], { x: -cardWidth, duration: 0.5 })
   }
-];
-
-const HeroSection: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % cards.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      gsap.to(containerRef.current, {
-        x: `-${currentIndex * 33.333}%`,
-        duration: 0.8,
-        ease: "power2.inOut"
-      });
-    }
-  }, [currentIndex]);
-
-  const getVisibleCards = () => {
-    const visibleCards = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % cards.length;
-      visibleCards.push(index);
-    }
-    return visibleCards;
-  };
+    const interval = setInterval(animateCarousel, 3000) // Change cards every 3 seconds
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <div className="relative w-full bg-white py-8 overflow-hidden">
-      <div className="max-w-[95%] mx-auto">
-        <div className="relative">
-          <div
-            ref={containerRef}
-            className="flex gap-5"
-          >
-            {cards.map((card, index) => (
-              <Link
-                href={card.link}
-                key={card.id}
-                className="w-[calc(33.333%-14px)] flex-shrink-0"
-              >
-                <div
-                  ref={(el) => {
-                    cardsRef.current[index] = el;
-                  }}
-                  className={`relative rounded-lg shadow-lg overflow-hidden transition-opacity duration-500 ${
-                    getVisibleCards().includes(index) ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  style={{ aspectRatio: '1/1' }}
-                >
-                  <Image
-                    src={card.image}
-                    alt={card.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                    <h3 className="text-white font-bold text-lg">{card.title}</h3>
-                    <p className="text-white/90 text-sm">{card.subtitle}</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Navigation dots */}
-          <div className="flex justify-center mt-4">
-            {cards.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 mx-1 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? 'bg-blue-600 w-4' : 'bg-gray-400'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
+    <div className="w-full max-w-4xl mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-4 text-center">Carousel</h2>
+      <div className="relative overflow-hidden">
+        <div ref={carouselRef} className="flex transition-all duration-500 ease-in-out">
+          {visibleCards.map((card, index) => (
+            <div
+              key={card.id}
+              className="flex-shrink-0 w-full sm:w-2/3 md:w-1/2 p-1"
+              style={{ transform: `translateX(${index * 100}%)` }}
+            >
+              <div className="bg-white rounded-lg shadow-md p-4 h-56 flex items-center justify-center">
+                <h3 className="text-xl font-semibold">{card.title}</h3>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
-  );
-};
-
-export default HeroSection;
+  )
+}
