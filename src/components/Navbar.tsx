@@ -372,36 +372,58 @@ export default function Navbar() {
           onMouseLeave={handleMouseLeave}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-6 gap-6">
-              {mainNavItems.find(item => item.title === activeDropdown)?.categories.map((category, index) => (
-                <div key={category.name} className={index >= 4 ? 'col-span-2' : 'col-span-1'}>
-                  <h3 className="font-semibold mb-2">{category.name}</h3>
-                  <ul className="space-y-1">
-                    {category.items.map((item) => (
-                      <li key={item.name}>
-                        <Link href={item.href} className="text-sm hover:text-primary">
-                          <button className="w-full text-left py-1 px-2 rounded hover:bg-gray-100 transition duration-150 ease-in-out">
-                            {item.name}
-                          </button>
+            <div className="max-h-[50vh] overflow-y-auto">
+              <div className="grid grid-cols-12 gap-6">
+                <div className="col-span-8 grid grid-cols-4 gap-6">
+                  {mainNavItems
+                    .find(item => item.title === activeDropdown)
+                    ?.categories
+                    .slice(0, 4)
+                    .map((category) => (
+                      <div key={category.name} className="min-h-0">
+                        <h3 className="font-semibold text-gray-900 mb-3">{category.name}</h3>
+                        <ul className="space-y-2">
+                          {category.items.map((item) => (
+                            <li key={item.name}>
+                              <Link 
+                                href={item.href} 
+                                className="text-sm text-gray-600 hover:text-gray-900 block"
+                              >
+                                <button className="w-full text-left py-1 px-2 rounded hover:bg-gray-50 transition duration-150 ease-in-out">
+                                  {item.name}
+                                </button>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                </div>
+                {activeDropdown !== 'MOBILE COVERS' && (
+                  <div className="col-span-4">
+                    <h3 className="font-semibold text-gray-900 mb-3">SPECIALS</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      {specialItems.map((item) => (
+                        <Link 
+                          key={item.name} 
+                          href={`/specials/${item.name.toLowerCase().replace(/ /g, '-')}`} 
+                          className="text-center group"
+                        >
+                          <div className="aspect-square relative bg-gray-100 rounded-lg mb-2 overflow-hidden">
+                            <Image 
+                              src={item.image} 
+                              alt={item.name} 
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                          <span className="text-xs text-gray-600 group-hover:text-gray-900">{item.name}</span>
                         </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-              {activeDropdown !== 'MOBILE COVERS' && (
-                <div className="col-span-2">
-                  <h3 className="font-semibold mb-2">SPECIALS</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {specialItems.map((item) => (
-                      <Link key={item.name} href={`/specials/${item.name.toLowerCase().replace(/ /g, '-')}`} className="text-center">
-                        <Image src={item.image} alt={item.name} width={100} height={100} className="mx-auto mb-2 rounded-full" />
-                        <span className="text-xs">{item.name}</span>
-                      </Link>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </div>
